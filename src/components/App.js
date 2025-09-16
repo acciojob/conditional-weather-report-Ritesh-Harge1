@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import WeatherDisplay from "./WeatherDisplay";
 
 function App() {
   // Hardcoded weather input
@@ -8,9 +7,20 @@ function App() {
     conditions: "Sunny",
   });
 
+  // Inline style for temperature
+  const tempStyle = {
+    color: weather.temperature > 20 ? "red" : "blue",
+  };
+
   return (
     <div>
-      <WeatherDisplay weather={weather} />
+      {/* First p tag for temperature */}
+      <p>
+        Temperature: <span style={tempStyle}>{weather.temperature}</span>
+      </p>
+
+      {/* Second p tag for conditions */}
+      <p>Conditions: {weather.conditions}</p>
     </div>
   );
 }
